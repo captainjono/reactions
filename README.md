@@ -10,7 +10,6 @@
 
 By embracing rx, and helping allviate backpressure in a variety of situations, you can be comfortable that your technology choice is backed by a passionate group of enthustists who hate getting called in on weekends just because of some wild storm! ;)
 
-
 <b>#Fluent first?</b><p>
 Lets face it, your program is your documentation. Edit it while you write it.
 
@@ -22,11 +21,11 @@ EventManagers connect your universes to the outside world, we provide <i>a few</
 
 <b>#Fluent last</b><p>
 Implement IReactCfg anywhere you want and that actor gets Iets you fiddle with its innerds; how many of those times do you want to ignore half the noise, return 
-        pileline.FirstLastDistinct(e=> e.Name)
+       <pre><code> pileline.FirstLastDistinct(e => e.Name)</code></pre>
 and be done with it. 
 
 <b>#Backpressure made easy</b>
-    pipline.OverflowTo(_azureTable).When(new responseTimeExeeds(200).ms()).ReportAll().ReportsOn(QueueLengthExceed(l => 20), _centralAlertService)
+<pre><code> pipline.OverflowTo(_azureTable).When(new responseTimeExeeds(200).ms()).ReportAll().ReportsOn(QueueLengthExceed(l => 20), _centralAlertService)</code></pre>
 
 <b>#pkg mgr free</b>
 Our design is your design. Its encourged to simply run bare, with a one file download the enouraged form of integration. you can include and split out what you want as your requirements change. Simply diff up the original when you want to upgrade. Or not!
