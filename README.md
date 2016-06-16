@@ -1,8 +1,7 @@
 <h1><b># reactions</b><h1>
-<i>a little foundation for the days of writing highly specialised inter-connected services.</i>
+<i>a little foundation for the days of writing highly specialised inter-connected services.</i><p><p>
 
-<h2>
-<b>* fluent</b><p>
+<h2><b>* fluent</b><p>
 <b>* micro </b><p>
 <b>* functional</b><p>
 <b>* Rxactive</b><p>
@@ -44,14 +43,14 @@ POCO ES models converted to the lanuage of your choice allows your domain to fol
 
 <b>#Fluent last</b><p>
 Implement IReactCfg anywhere you want and that actor gets Iets you fiddle with its innerds; how many of those times do you want to ignore half the noise, return 
-       <pre><code> pileline.FirstLastDistinct(e => e.Name)</code></pre>
+       <pre><code>pileline.FirstLastDistinct(e => e.Name)</code></pre>
 and be done with it. 
 
 
 <b>#so is monitoring</b><p>
-<i>pipeline.ReportsTo(_console)</i>
+<pre><code>pipeline.ReportsTo(_console)</code></pre>
 or for the more adventurous
-<p><code>reactor.ReportsWhen(QueueLengthExceed(l => 20), _centralAlertService).To(_centralLogger)</code></pre>
+<pre><code>reactor.ReportsWhen(QueueLengthExceed(l => 20), _centralAlertService).To(_centralLogger)</code></pre>
 
 <b>#pkg mgr free</b><p>
 Our design is your design. Its encourged to simply run bare, with a one file download the enouraged form of integration. you can include and split out what you want as your requirements change. Simply diff up the original when you want to upgrade. Or not!
