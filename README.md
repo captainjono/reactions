@@ -34,7 +34,7 @@ this.OnReactionTo<UserAttemptingALogin>(e => e.tenant = "a")
 Once again these events shine their armor by supporting optimistic updates and offline supprt. Which if you think about it for a second could be reason as an overfloww in response to a  
 
 <b>#Bbbbackpressure made easy</b><p>
-<pre><code> pipline.OverflowTo(_azureTable).When(new responseTimeExeeds(200).ms())</i>
+<pre><code> pipline.OverflowTo(_azureTable).When(new responseTimeExeeds(200).ms())</code></pre>
 
 <b>#Syncing?</b><p>
 <i>Yeh i know, events are cool and all but managing them? Organising them?</i> THis is obviously where u should be spending your time thinking, but the intrinic versioning of events is a good start with consisstancy, and we should always be looking at reducing over programs overall complexity while still applying patterns in the right siutation... In this situation, it just defers to disk and assumes the operations are successful
@@ -48,10 +48,10 @@ Implement IReactCfg anywhere you want and that actor gets Iets you fiddle with i
 and be done with it. 
 
 
-<b>#so is monitoring</b>
-pipeline.ReportsTo(_console)
+<b>#so is monitoring</b><p>
+<i>pipeline.ReportsTo(_console)</i>
 or for the more adventurous
-reactor.ReportsWhen(QueueLengthExceed(l => 20), _centralAlertService).To(_centralLogger)</code></pre>
+<p><code>reactor.ReportsWhen(QueueLengthExceed(l => 20), _centralAlertService).To(_centralLogger)</code></pre>
 
 <b>#pkg mgr free</b><p>
 Our design is your design. Its encourged to simply run bare, with a one file download the enouraged form of integration. you can include and split out what you want as your requirements change. Simply diff up the original when you want to upgrade. Or not!
