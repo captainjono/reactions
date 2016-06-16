@@ -15,7 +15,14 @@ Lets face it, your program is your documentation. Edit it while you write it.
 
 <b>IReacTo\<Reactors\></b><p>
 With _IEvent_ sourcing a first order design, these usiverses host your actors <i>input</i> and <i>output</i> streams. Why stop at backend services? I often think those JS guys just rebranded it as Flux when applied to the UI... the aync link? well thats just Subscriptions to your ES DDD data model.. with rewind, playback, shift time, or just support offline and remote sync.  
+```c#
 
+this.OnReactionTo<MouseMoved>()
+       .SkipWhile(pos => GetMouseState().RightButton.IsPressed()))
+       .Do(m => PaintPixel(m.Y, m.Y, Colors.Blue))
+       .Until()
+       .DisposedBy(_resources);
+```
 <b>#Events</b><p>
 EventManagers (original i know) connect your universes to the outside world, we provide <i>a few</i> of the more common ones but for those of you feeling adventrous, Prototype now, scale up with Orleans & Akka anytime you want.. We provide a set of interfaces that implement patterns as original as IEVentProcessor, IEventPulsar. IEventPublisher...
 
@@ -23,12 +30,12 @@ EventManagers (original i know) connect your universes to the outside world, we 
 doubling as your state <i>expressed over time.</i>. The data in your events forms you data model, pinging subscriptions whenever upcates are made is just a bonus side-effect. That is not an endorsement for shared state btw. 
 ```c#
 this.OnReactionTo<UserAttemptingALogin>(e => e.tenant = "a")
-.Do(LogAttempt(e.Id))
-.Do(VerifyLoginAttempt)
-.DoWhen(e => SawAttempt(e.Id))), e.IssueToken)
-.CatchWhen<UserLoginFailed>(e => e. e => OnWarning("Implement parser later\r\nIPLOG\t{0}\t{1}", e.UserName, e.IP))
-.Until()
-.DiposeBy(this);
+       .Do(e => LogAttempt(e.Id))
+       .Do(VerifyLoginAttempt)
+       .DoWhen(e => SawAttempt(e.Id), e => _publish(new UserLoggedIn(e.Username, e.IP)))
+       .CatchWhen<UserLoginFailed>(e => OnWarning("Implement parser later\r\nIPLOG\t{0}\t{1}", e.UserName, e.IP))
+       .Until(error => OnError("She shunk the boat: {0}", error))
+       .DiposeBy(this);
 ```
 
 <b>#Build offline fist</b><p>
@@ -46,9 +53,9 @@ POCO ES models converted to the lanuage of your choice allows your domain to fol
 
 <b>#Fluent last</b><p>
 Implement IReactCfg anywhere you want and that actor gets Iets you fiddle with its innerds; how many of those times do you want to ignore half the noise, return 
-       ```c#
-       pileline.FirstLastDistinct(e => e.Name)
-       ```
+```c#
+pileline.FirstLastDistinct(e => e.Name)
+```
 and be done with it. 
 
 
@@ -58,7 +65,7 @@ pipeline.ReportsTo(_console)
 ```
 or for the more adventurous
 ```c#
-<pre><code>reactor.ReportsWhen(QueueLengthExceed(l => 20), _centralAlertService).To(_centralLogger)
+reactor.ReportsWhen(QueueLengthExceed(l => 20), _centralAlertService).To(_centralLogger)
 ```
 
 <b>#pkg mgr free</b><p>
