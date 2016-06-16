@@ -1,5 +1,5 @@
 <h1><b># reactions</b><h1>
-<i>a little foundation for the days of writing highly specialised inter-connected services. </i> 
+<i>a little foundation for the days of writing highly specialised inter-connected services.</i>
 
 <h2>
 <b>* fluent</b><p>
