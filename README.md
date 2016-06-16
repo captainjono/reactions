@@ -8,7 +8,7 @@
 <b>* Rxactive</b><p>
 </h2><p>
 
-By embracing rx, and helping allviate backpressure in a variety of situations, you can be comfortable that your technology choice is backed by a passionate group of enthustists who hate getting called in on weekends just because of some wild storm! ;)
+By embracing rx, and helping allviate backpressure in a variety of situations, you can be comfortable that your technology choice is backed by a passionate group of enthustists who hate getting called in on weekends just because of some wild storm! </i>event though they are bots inside your computer and does storm in computer land.. ddos maybe?</i>
 
 <b>#Fluent first?</b><p>
 Lets face it, your program is your documentation. Edit it while you write it. 
